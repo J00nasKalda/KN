@@ -13,6 +13,5 @@ import java.time.LocalDate;
 public class OrderDto implements Serializable {
     private Integer id;
     private LocalDate dateOfSubmission;
-    private Integer orderLineId;
     private Integer customerId;
 }

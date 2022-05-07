@@ -13,4 +13,9 @@ public class ProductService {
     @Resource
     private ProductMapper productMapper;
 
+    public ProductDto addNewProduct(ProductDto productDto) {
+        Product product = productMapper.productDtoToProduct(productDto);
+        productRepository.save(product);
+        return productMapper.productToProductDto(product);
+    }
 }

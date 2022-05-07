@@ -5,12 +5,13 @@ import org.mapstruct.*;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface OrderLineMapper {
     @Mapping(source = "productId", target = "product.id")
+    @Mapping(source = "orderId", target = "order.id")
     OrderLine orderLineDtoToOrderLine(OrderLineDto orderLineDto);
 
-    @Mapping(source = "product.id", target = "productId")
+    @InheritInverseConfiguration(name = "orderLineDtoToOrderLine")
     OrderLineDto orderLineToOrderLineDto(OrderLine orderLine);
 
-    @Mapping(source = "productId", target = "product.id")
+    @InheritConfiguration(name = "orderLineDtoToOrderLine")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateOrderLineFromOrderLineDto(OrderLineDto orderLineDto, @MappingTarget OrderLine orderLine);
 }

@@ -1,5 +1,6 @@
 package com.example.OrderManagement.domain.orderline;
 
+import com.example.OrderManagement.domain.order.Order;
 import com.example.OrderManagement.domain.product.Product;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,5 +23,9 @@ public class OrderLine {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
 
 }

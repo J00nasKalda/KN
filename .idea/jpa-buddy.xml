@@ -3,6 +3,6 @@
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
     <option name="reverseEngineeringLastDbConnectionId" value="c273dca8-e521-4010-8f78-45c2ebda7a6a" />
-    <option name="reLastEntityCreationPackage" value="OrderManagement/src/main/java/com/example/OrderManagement/domain/order" />
+    <option name="reLastEntityCreationPackage" value="OrderManagement/src/main/java/com/example/OrderManagement/domain/orderline" />
   </component>
 </project>
