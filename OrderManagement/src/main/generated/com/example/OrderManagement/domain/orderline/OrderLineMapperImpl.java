@@ -1,6 +1,5 @@
 package com.example.OrderManagement.domain.orderline;
 
-import com.example.OrderManagement.domain.order.Order;
 import com.example.OrderManagement.domain.product.Product;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;

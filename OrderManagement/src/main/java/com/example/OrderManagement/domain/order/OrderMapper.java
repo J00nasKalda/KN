@@ -2,15 +2,17 @@ package com.example.OrderManagement.domain.order;
 
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface OrderMapper {
-    @Mapping(source = "customerId", target = "customer.id")
     Order orderDtoToOrder(OrderDto orderDto);
 
-    @Mapping(source = "customer.id", target = "customerId")
     OrderDto orderToOrderDto(Order order);
 
-    @Mapping(source = "customerId", target = "customer.id")
+    List<OrderDto> orderToOrderDtos(List<Order> order);
+
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
     void updateOrderFromOrderDto(OrderDto orderDto, @MappingTarget Order order);
 }

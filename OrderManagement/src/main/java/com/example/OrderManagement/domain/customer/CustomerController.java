@@ -28,10 +28,21 @@ public class CustomerController {
 
     @PostMapping("/new")
     @Operation(summary = "add new customer")
-    public CustomerDto addNewCustomer(@RequestBody CustomerDto customerDto) {
-        return customerService.addNewCustomer(customerDto);
+    public void addNewCustomer(@RequestBody CustomerDto customerDto) {
+        customerService.addNewCustomer(customerDto);
     }
 
+    @PutMapping("/update")
+    @Operation(summary = "update customer by id")
+    public void updateCustomerById(@RequestParam Integer customerId, @Valid @RequestBody CustomerDto customerDto) {
+        customerService.updateCustomerById(customerId, customerDto);
+    }
+
+    @DeleteMapping("/delete")
+    @Operation(summary = "delete customer by Id")
+    public void deleteCustomerById(@RequestParam Integer customerId) {
+        customerService.deleteCustomerById(customerId);
+    }
 
 
 }

@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-05-07 06:47:16.282
+-- Last modification date: 2022-05-08 06:53:51.256
 
 -- tables
 -- Table: customer
@@ -16,8 +16,15 @@ CREATE TABLE customer (
 CREATE TABLE "order" (
     id serial  NOT NULL,
     date_of_submission date  NOT NULL,
-    customer_id int  NOT NULL,
     CONSTRAINT order_pk PRIMARY KEY (id)
+);
+
+-- Table: order_customer
+CREATE TABLE order_customer (
+    id serial  NOT NULL,
+    order_id int  NOT NULL,
+    customer_id int  NOT NULL,
+    CONSTRAINT order_customer_pk PRIMARY KEY (id)
 );
 
 -- Table: order_line
@@ -39,10 +46,18 @@ CREATE TABLE product (
 );
 
 -- foreign keys
--- Reference: order_customer (table: order)
-ALTER TABLE "order" ADD CONSTRAINT order_customer
+-- Reference: order_customer_customer (table: order_customer)
+ALTER TABLE order_customer ADD CONSTRAINT order_customer_customer
     FOREIGN KEY (customer_id)
     REFERENCES customer (id)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: order_customer_order (table: order_customer)
+ALTER TABLE order_customer ADD CONSTRAINT order_customer_order
+    FOREIGN KEY (order_id)
+    REFERENCES "order" (id)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;

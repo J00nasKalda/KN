@@ -13,5 +13,6 @@ public interface CustomerMapper {
     List<CustomerDto> customerToCustomerDtos(List<Customer> customer);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "id", ignore = true)
     void updateCustomerFromCustomerDto(CustomerDto customerDto, @MappingTarget Customer customer);
 }

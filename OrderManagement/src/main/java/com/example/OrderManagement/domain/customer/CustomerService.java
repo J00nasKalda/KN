@@ -28,9 +28,19 @@ public class CustomerService {
         return customerMapper.customerToCustomerDto(customer);
     }
 
-    public CustomerDto addNewCustomer(CustomerDto customerDto) {
+    public void addNewCustomer(CustomerDto customerDto) {
         Customer customer = customerMapper.customerDtoToCustomer(customerDto);
         customerRepository.save(customer);
-        return customerMapper.customerToCustomerDto(customer);
+    }
+
+    public void updateCustomerById(Integer customerId, CustomerDto customerDto) {
+        Customer customer = customerRepository.getById(customerId);
+        customerMapper.updateCustomerFromCustomerDto(customerDto,customer);
+        customerRepository.save(customer);
+    }
+
+    public void deleteCustomerById(Integer customerId) {
+        Customer customer = customerRepository.getById(customerId);
+        customerRepository.delete(customer);
     }
 }

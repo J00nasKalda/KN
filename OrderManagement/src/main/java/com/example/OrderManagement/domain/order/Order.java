@@ -1,6 +1,5 @@
 package com.example.OrderManagement.domain.order;
 
-import com.example.OrderManagement.domain.customer.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,9 +18,5 @@ public class Order {
 
     @Column(name = "date_of_submission", nullable = false)
     private LocalDate dateOfSubmission;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
 
 }

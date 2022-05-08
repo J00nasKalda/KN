@@ -14,4 +14,9 @@ public class OrderLineService {
     private OrderLineMapper orderLineMapper;
 
 
+    public OrderLineDto getByProductName(String productName) {
+        OrderLine orderLine = orderLineRepository.findByProduct(productName);
+        return orderLineMapper.orderLineToOrderLineDto(orderLine);
+    }
+
 }

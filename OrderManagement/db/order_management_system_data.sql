@@ -6,9 +6,14 @@ INSERT INTO public.product (id, name, sku_code, unit_price) VALUES (DEFAULT, 'Wo
 INSERT INTO public.product (id, name, sku_code, unit_price) VALUES (DEFAULT, 'Metal', '202020', '20');
 INSERT INTO public.product (id, name, sku_code, unit_price) VALUES (DEFAULT, 'Steel', '303030', '30');
 
-INSERT INTO public."order" (id, date_of_submission, customer_id) VALUES (DEFAULT, '2022-05-25', 1);
-INSERT INTO public."order" (id, date_of_submission, customer_id) VALUES (DEFAULT, '2022-06-25', 2);
-INSERT INTO public."order" (id, date_of_submission, customer_id) VALUES (DEFAULT, '2022-07-25', 3);
+INSERT INTO public."order" (id, date_of_submission) VALUES (DEFAULT, '2022-05-25');
+INSERT INTO public."order" (id, date_of_submission) VALUES (DEFAULT, '2022-06-25');
+INSERT INTO public."order" (id, date_of_submission) VALUES (DEFAULT, '2022-07-25');
+
+
+INSERT INTO public.order_customer (id, order_id, customer_id) VALUES (DEFAULT, 1, 1);
+INSERT INTO public.order_customer (id, order_id, customer_id) VALUES (DEFAULT, 2, 2);
+INSERT INTO public.order_customer (id, order_id, customer_id) VALUES (DEFAULT, 3, 3);
 
 INSERT INTO public.order_line (id, quantity, product_id, order_id) VALUES (DEFAULT, 10, 1, 1);
 INSERT INTO public.order_line (id, quantity, product_id, order_id) VALUES (DEFAULT, 10, 2, 2);
