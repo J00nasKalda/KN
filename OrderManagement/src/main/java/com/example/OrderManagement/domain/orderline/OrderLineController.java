@@ -15,11 +15,11 @@ public class OrderLineController {
     @Resource
     private OrderLineService orderLineService;
 
-    @GetMapping("/by-product")
-    @Operation(summary = "Get order ID by product name")
-    public OrderLineDto getByProductName(@RequestParam String productName) {
-        return orderLineService.getByProductName(productName);
-    }
+//    @GetMapping("/by-product")
+//    @Operation(summary = "Get order ID by product name")
+//    public OrderLineDto getByProductName(@RequestParam String productName) {
+//        return orderLineService.getByProductName(productName);
+//    }
 
 
 }

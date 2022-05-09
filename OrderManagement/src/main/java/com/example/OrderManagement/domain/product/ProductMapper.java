@@ -6,6 +6,7 @@ import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface ProductMapper {
+    @Mapping(target = "id", ignore = true)
     Product productDtoToProduct(ProductDto productDto);
 
     ProductDto productToProductDto(Product product);

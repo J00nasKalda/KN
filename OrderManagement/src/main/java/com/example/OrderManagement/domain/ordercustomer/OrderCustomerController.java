@@ -15,9 +15,9 @@ public class OrderCustomerController {
     @Resource
     private OrderCustomerService orderCustomerService;
 
-    @GetMapping("/by-customer")
-    @Operation(summary = "Get order ID by customer name")
-    public OrderCustomerDto getByCustomerName(@RequestParam String customerName) {
-        return orderCustomerService.getByCustomerName(customerName);
-    }
+//    @GetMapping("/by-customer")
+//    @Operation(summary = "Get order ID by customer name")
+//    public OrderCustomerDto getByCustomerName(@RequestParam String customerName) {
+//        return orderCustomerService.getByCustomerName(customerName);
+//    }
 }

@@ -3,6 +3,8 @@ package com.example.OrderManagement.domain.order;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,9 +26,16 @@ public class OrderService {
         return orderMapper.orderToOrderDto(order);
     }
 
-    public void addNewOrder(OrderDto orderDto) {
+    public OrderDto addNewOrder(OrderDto orderDto) {
         Order order = orderMapper.orderDtoToOrder(orderDto);
         orderRepository.save(order);
+        return orderMapper.orderToOrderDto(order);
+    }
+
+    public Order addNewOrderandGetEntity(OrderDto orderDto) {
+        Order order = orderMapper.orderDtoToOrder(orderDto);
+        orderRepository.save(order);
+        return order;
     }
 
     public void updateOrderById(Integer orderId, OrderDto orderDto) {
@@ -37,5 +46,14 @@ public class OrderService {
 
     public void deleteOrderById(Integer orderId) {
         orderRepository.deleteById(orderId);
+    }
+
+    public List<OrderDto> getBydate(LocalDate orderDate) {
+        List<Order> orders = orderRepository.findByDateOfSubmission(orderDate);
+        return orderMapper.orderToOrderDtos(orders);
+    }
+
+    public List<OrderDto> toDtos(ArrayList<Order> orders) {
+        return orderMapper.orderToOrderDtos(orders);
     }
 }

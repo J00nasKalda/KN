@@ -15,34 +15,34 @@ public class OrderController {
     private OrderService orderService;
 
 
-    @GetMapping("/all")
-    @Operation(summary = "Get a list of all orders")
-    public List<OrderDto> getAllOrders() {
-        return orderService.getAllOrders();
-    }
-
-    @GetMapping("/id")
-    @Operation(summary = "Get order by order ID")
-    public OrderDto getOrderById(@RequestParam Integer orderId) {
-        return orderService.getOrderById(orderId);
-    }
-
-    @PostMapping("/new")
-    @Operation(summary = "Add new order")
-    public void addNewOrder(@Valid @RequestBody OrderDto orderDto) {
-        orderService.addNewOrder(orderDto);
-    }
-
-    @PutMapping("/update")
-    @Operation(summary = "Update order by order ID")
-    public void updateOrderById(@RequestParam Integer orderId, @Valid @RequestBody OrderDto orderDto) {
-        orderService.updateOrderById(orderId, orderDto);
-    }
-
-    @DeleteMapping("/delete")
-    @Operation(summary = "Delete order by order ID")
-    public void deleteOrderById(Integer orderId) {
-        orderService.deleteOrderById(orderId);
-    }
+//    @GetMapping("/all")
+//    @Operation(summary = "Get a list of all orders")
+//    public List<OrderDto> getAllOrders() {
+//        return orderService.getAllOrders();
+//    }
+//
+//    @GetMapping("/id")
+//    @Operation(summary = "Get order by order ID")
+//    public OrderDto getOrderById(@RequestParam Integer orderId) {
+//        return orderService.getOrderById(orderId);
+//    }
+//
+//    @PostMapping("/new")
+//    @Operation(summary = "Add new order")
+//    public OrderDto addNewOrder(@Valid @RequestBody OrderDto orderDto) {
+//        return orderService.addNewOrder(orderDto);
+//    }
+//
+//    @PutMapping("/update")
+//    @Operation(summary = "Update order by order ID")
+//    public void updateOrderById(@RequestParam Integer orderId, @Valid @RequestBody OrderDto orderDto) {
+//        orderService.updateOrderById(orderId, orderDto);
+//    }
+//
+//    @DeleteMapping("/delete")
+//    @Operation(summary = "Delete order by order ID")
+//    public void deleteOrderById(Integer orderId) {
+//        orderService.deleteOrderById(orderId);
+//    }
 
 }

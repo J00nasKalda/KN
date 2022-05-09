@@ -28,9 +28,10 @@ public class CustomerService {
         return customerMapper.customerToCustomerDto(customer);
     }
 
-    public void addNewCustomer(CustomerDto customerDto) {
+    public CustomerDto addNewCustomer(CustomerDto customerDto) {
         Customer customer = customerMapper.customerDtoToCustomer(customerDto);
         customerRepository.save(customer);
+        return customerMapper.customerToCustomerDto(customer);
     }
 
     public void updateCustomerById(Integer customerId, CustomerDto customerDto) {

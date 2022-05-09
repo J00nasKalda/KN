@@ -6,6 +6,7 @@ import java.util.List;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface OrderMapper {
+    @Mapping(target = "id", ignore = true)
     Order orderDtoToOrder(OrderDto orderDto);
 
     OrderDto orderToOrderDto(Order order);

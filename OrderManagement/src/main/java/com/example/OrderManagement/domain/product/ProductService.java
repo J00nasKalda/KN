@@ -26,9 +26,10 @@ public class ProductService {
         return productMapper.productToProductDto(product);
     }
 
-    public void addNewProduct(ProductDto productDto) {
+    public ProductDto addNewProduct(ProductDto productDto) {
         Product product = productMapper.productDtoToProduct(productDto);
         productRepository.save(product);
+        return productMapper.productToProductDto(product);
 
     }
 

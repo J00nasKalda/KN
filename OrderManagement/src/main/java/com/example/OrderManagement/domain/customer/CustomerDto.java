@@ -12,12 +12,12 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class CustomerDto implements Serializable {
     private Integer id;
-    @NotNull
+
     private String registrationCode;
-    @NotNull
+
     private String fullName;
-    @NotNull
+
     private String email;
-    @NotNull
+
     private String telephone;
 }
