@@ -16,10 +16,16 @@ public class NewOrderController {
     @Resource
     private NewOrderService newOrderService;
 
-    @PostMapping("/new")
-    @Operation(summary = "Add new order")
+    @PostMapping("/new-all")
+    @Operation(summary = "Add new order and connect it with product and customer")
     public NewOrderResponse addNewOrder(@RequestParam Integer orderCustomerId, @RequestParam Integer orderQuantity, @RequestParam Integer orderLineId, @Valid @RequestBody OrderDto orderDto) {
         return newOrderService.addNewOrder(orderCustomerId, orderQuantity,orderLineId, orderDto);
+    }
+
+    @PostMapping("/new")
+    @Operation(summary = "Add new order")
+    public OrderDto addOnlyOrder(@Valid @RequestBody OrderDto orderDto) {
+        return newOrderService.addOnlyOrder(orderDto);
     }
 
     @GetMapping("/date")

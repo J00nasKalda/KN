@@ -54,4 +54,8 @@ public class NewOrderService {
     public List<OrderDto> getByCustomer(String customerName) {
         return orderCustomerService.findOrdersByCustomer(customerName);
     }
+
+    public OrderDto addOnlyOrder(OrderDto orderDto) {
+        return orderService.addNewOrder(orderDto);
+    }
 }
