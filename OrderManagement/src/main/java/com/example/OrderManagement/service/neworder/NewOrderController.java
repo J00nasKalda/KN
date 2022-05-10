@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/make-order")
+@RequestMapping("/new-order")
 public class NewOrderController {
 
     @Resource
